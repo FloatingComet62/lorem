@@ -26,3 +26,12 @@ examples:
  lorem sentence 2	generate 2 lines/sentences
 
 ```
+
+## Building
+`build.c` is the script used to build the project. To use it, bootstrap `build`
+with gcc & run the executable to build the project
+```
+gcc build.c -o build
+./build
+```
+Inspired by [nob](https://github.com/tsoding/nob.h)
