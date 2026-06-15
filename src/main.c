@@ -91,7 +91,10 @@ int main(int argc, char **argv) {
   srand(time(NULL));
   if (mode == MODE_WORD) return word_mode(length, true, false);
   printf("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ");
-  if (mode == MODE_SENTENCE) return sentence_mode(length, true);
+  if (mode == MODE_SENTENCE) {
+    printf("\n");
+    return sentence_mode(length - 1, true);
+  }
   return paragraph_mode(length, true);
 }
 
