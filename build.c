@@ -59,8 +59,19 @@ int main(int argc, char** argv) {
     execvp(argv[0], argv);
   }
 
+  if (argc > 1) {
+    if (strcmp(argv[1], "release") == 0) {
+      RUN_CMD({CC, "src/main.c", "-o", "lorem", "-O3", NULL});
+      return 0;
+    }
+  }
+
   RUN_CMD({CC, "src/main.c", "-o", "lorem", NULL});
-  char* args[] = {"./lorem", NULL};
+  char* args[4]; int k = 0;
+  args[k++] = "./lorem";
+  if (argc >= 2) args[k++] = argv[1];
+  if (argc >= 3) args[k++] = argv[2];
+  args[k++] = NULL;
   print_cmd(args);
   execvp(args[0], args);
 }
