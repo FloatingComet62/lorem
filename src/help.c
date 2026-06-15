@@ -16,6 +16,7 @@ int print_help() {
   printf(" lorem s 2\t\tgenerate 2 lines/sentences\n");
   printf(" lorem 2\t\tgenerate 2 lines/sentences\n");
   printf(" lorem\t\t\tgenerate 1 line/sentence\n");
+  printf(" lorem p\t\tgenerate 1 paragraph\n");
   printf(" lorem paragraph 2\tgenerate 2 paragraphs\n");
   printf(" lorem word 2\t\tgenerate 2 words\n");
   printf(" lorem line 2\t\tgenerate 2 lines/sentences\n");

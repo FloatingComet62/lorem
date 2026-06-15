@@ -6,6 +6,22 @@
 #include "modes.h"
 #include "help.h"
 
+#define IS_WORD(x) ( \
+    (strcmp(x, "w") == 0) || \
+    (strcmp(x, "word") == 0) \
+  )
+#define IS_LINE(x) ( \
+    (strcmp(x, "l") == 0) || \
+    (strcmp(x, "s") == 0) || \
+    (strcmp(x, "line") == 0) || \
+    (strcmp(x, "sentence") == 0) \
+  )
+#define IS_PARA(x) ( \
+    (strcmp(x, "p") == 0) || \
+    (strcmp(x, "para") == 0) || \
+    (strcmp(x, "paragraph") == 0) \
+  )
+
 int main(int argc, char **argv) {
   int mode = MODE_SENTENCE;
   int length = 1;
@@ -22,25 +38,21 @@ int main(int argc, char **argv) {
   }
 
   if (argc == 2) {
-    length = atoi(argv[1]);
-  } else if (argc == 3) {
-    if (
-      (strcmp(argv[1], "l") == 0) ||
-      (strcmp(argv[1], "line") == 0) ||
-      (strcmp(argv[1], "s") == 0) ||
-      (strcmp(argv[1], "sentence") == 0)
-    ) {
+    if (IS_LINE(argv[1])) {
       mode = MODE_SENTENCE;
-    } else if (
-      (strcmp(argv[1], "p") == 0) ||
-      (strcmp(argv[1], "para") == 0) ||
-      (strcmp(argv[1], "paragraph") == 0)
-    ) {
+    } else if (IS_PARA(argv[1])) {
       mode = MODE_PARAGRAPH;
-    } else if (
-      (strcmp(argv[1], "w") == 0) ||
-      (strcmp(argv[1], "word") == 0)
-    ) {
+    } else if (IS_WORD(argv[1])) {
+      mode = MODE_WORD;
+    } else {
+      length = atoi(argv[1]);
+    }
+  } else if (argc == 3) {
+    if (IS_LINE(argv[1])) {
+      mode = MODE_SENTENCE;
+    } else if (IS_PARA(argv[1])) {
+      mode = MODE_PARAGRAPH;
+    } else if (IS_WORD(argv[1])) {
       mode = MODE_WORD;
     }
     length = atoi(argv[2]);

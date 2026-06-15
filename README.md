@@ -13,14 +13,16 @@ options:
  -h --help		show this message
 
 examples:
- lorem p 2		    generate 2 paragraphs
- lorem w 2		    generate 2 words
- lorem l 2		    generate 2 lines/sentences
- lorem s 2		    generate 2 lines/sentences
- lorem 2		    generate 2 lines/sentences
- lorem			    generate 1 line/sentence
+ lorem p 2		generate 2 paragraphs
+ lorem w 2		generate 2 words
+ lorem l 2		generate 2 lines/sentences
+ lorem s 2		generate 2 lines/sentences
+ lorem 2		generate 2 lines/sentences
+ lorem			generate 1 line/sentence
+ lorem p		generate 1 paragraph
  lorem paragraph 2	generate 2 paragraphs
  lorem word 2		generate 2 words
  lorem line 2		generate 2 lines/sentences
  lorem sentence 2	generate 2 lines/sentences
+
 ```
